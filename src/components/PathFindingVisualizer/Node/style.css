@@ -1,0 +1,173 @@
+.node {
+  width: 25px !important;
+  height: 25px !important;
+  display: table-cell;
+  background: white;
+  border-radius: 3px;
+  background-color: white;
+  border-spacing: 0 !important;
+  padding: 0 !important;
+  white-space: nowrap; /* Prevent content from wrapping */
+  overflow: hidden;    /* Hide any overflowing content */
+  animation-duration: 0.3s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  outline: 1px solid rgb(245, 245, 245);
+  background: transparent;
+  animation-play-state: running;
+  transition: 0.3s all ease-out;
+}
+
+.enemy-node{
+  background: red;
+}
+
+.finish-node {
+  background: #43cea2; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #43cea2, #185a9d); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #43cea2, #185a9d);
+}
+
+.start-node {
+  background-image: linear-gradient(0deg, #522db8 0%, #1c7ce0 100%);
+}
+
+svg{
+  width: 20px !important;
+  height: 20px !important;
+}
+
+.visited-node {
+  animation-name: visitedAnimation;
+  opacity: 1;
+  //background-image: linear-gradient( rgba(0, 200, 159, 1) 0%, rgba(0, 217, 159, 0.55) 86.7% );
+}
+
+@keyframes visitedAnimation {
+  0% {
+    transform: scale(0.3);
+    background-color: rgba(0, 0, 66, 0.75);
+    border-radius: 100%;
+  }
+
+  50% {
+    background-color: rgba(17, 104, 217, 0.75);
+  }
+
+  75% {
+    transform: scale(1.2);
+    background-color: rgba(0, 217, 159, 0.75);
+  }
+
+  100% {
+    transform: scale(1);
+    background-image: linear-gradient( rgba(0, 200, 159, 1) 0%, rgba(0, 217, 159, 0.55) 86.7% );
+  }
+}
+
+.unvisited-node {
+  animation-name: unvisitedAnimation;
+  transform: scale(0.3);
+  background-color: rgba(0, 0, 66, 0.75);
+}
+
+@keyframes unvisitedAnimation {
+  100% {
+    transform: scale(0.3);
+    background-color: rgba(0, 0, 66, 0.75);
+    border-radius: 100%;
+  }
+
+  50% {
+    background-color: rgba(17, 104, 217, 0.75);
+  }
+
+  25% {
+    transform: scale(1.2);
+    background-color: rgba(0, 217, 159, 0.75);
+  }
+
+  0% {
+    transform: scale(1);
+    background-image: linear-gradient( rgba(0, 200, 159, 1) 0%, rgba(0, 217, 159, 0.55) 86.7% );
+  }
+}
+
+.wall-node {
+  animation-name: wallAnimation;
+  background-image: radial-gradient(circle at 10% 20%, rgb(69, 86, 102) 0%, rgb(34, 34, 34) 90%);
+}
+
+.weight-node {
+  animation-name: weightedAnimation;
+  background-image: radial-gradient(circle at 10% 20%, #7B90A2 30%, #2E384F 90%);
+}
+
+@keyframes weightedAnimation {
+  20% {
+    transform: scale(0.3)
+  }
+
+  100% {
+    transform: scale(1);
+    background-image: radial-gradient(circle at 10% 20%, #7B90A2 30%, #2E384F 90%);
+  }
+}
+
+.node-shortest-path {
+  background-image: radial-gradient(circle at 10% 20%, #5F10E8 0%, #3D0F8D 90%) !important;
+  opacity: 1 !important;
+}
+
+@keyframes wallAnimation {
+  0% {
+    transform: scale(0.3);
+  }
+
+  50% {
+    transform: scale(1.2);
+    background-image: #222;
+  }
+  100% {
+    transform: scale(1);
+    background-image: radial-gradient(circle at 10% 20%, rgb(69, 86, 102) 0%, rgb(34, 34, 34) 90%);
+  }
+}
+
+.enemy-node{
+  animation-name: enemyAnimation;
+  background-image: radial-gradient(circle at 10% 20%, #ff2957 0%, #ff7357 90%);
+}
+
+.circle{
+  border-radius: 50%;
+}
+
+@keyframes enemyAnimation{
+  0% {
+    transform: scale(0.3);
+  }
+
+  100%{
+    transform: scale(1);
+    background-image: radial-gradient(circle at 10% 20%, #ff2957 0%, #ff7357 90%);
+  }
+}
+
+.threat-node-10 {
+  background-image: radial-gradient(circle at 10% 20%, #ff2957 0%, #ff7357 90%);
+  opacity: 0.6;
+}
+
+.threat-node-5 {
+  background-image: radial-gradient(circle at 10% 20%, #ff2957 0%, #ff7357 90%);
+  opacity: 0.3;
+}
+
+.threat-node-2 {
+  background-image: radial-gradient(circle at 10% 20%, #ff2957 0%, #ff7357 90%);
+  opacity: 0.2;
+}

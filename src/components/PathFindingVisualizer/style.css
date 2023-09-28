@@ -1,0 +1,43 @@
+.grid{
+    display: grid;
+    margin: 5px;
+    width: 100%;
+}
+
+.flex{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px;
+}
+
+[aria-disabled="true"]{
+    color: grey !important;
+    opacity: 1 !important;
+    -webkit-text-fill-color: grey;
+}
+
+fieldset{
+    border-color: white !important;
+}
+
+label{
+    color: white !important;
+}
+
+svg{
+    color: white !important;
+}
+
+button{
+    background: white !important;
+    color: black !important;
+}
+
+div button:disabled{
+    cursor: not-allowed !important;
+}
+
+button svg{
+    color: black !important;
+}
