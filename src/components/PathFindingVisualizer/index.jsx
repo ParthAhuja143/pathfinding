@@ -640,7 +640,6 @@ const PathFindingVisualizer = () => {
                                                 {algorithm.label}
                                                 {algorithm.tags.map(
                                                     (tag, index) => {
-                                                        console.log(tag)
                                                         return (
                                                             <Chip
                                                                 size="small"
@@ -800,8 +799,7 @@ const PathFindingVisualizer = () => {
                                                 if (!canClickButton) return;
                                                 handleMazeAlgorithmChange({
                                                     target: {
-                                                        value: event.target
-                                                            .outerText,
+                                                        value: event.target.firstChild.data
                                                     },
                                                 });
                                             }}
