@@ -1,10 +1,10 @@
-<img width="1335" alt="Screenshot 2023-09-29 at 10 36 30 AM" src="https://github.com/ParthAhuja143/pathfinding/assets/43706009/9ec3d2f7-9a19-4f9a-8229-2a7b3728d800">
-
 ---
 title: Pathfinding Algorithm Visualizer
 description: Visualize and compare various pathfinding algorithms with an interactive grid-based UI.
 author: ParthAhuja143
 ---
+
+<img width="1335" alt="Screenshot 2023-09-29 at 10 36 30 AM" src="https://github.com/ParthAhuja143/pathfinding/assets/43706009/9ec3d2f7-9a19-4f9a-8229-2a7b3728d800">
 
 ![License](https://img.shields.io/github/license/ParthAhuja143/pathfinding)
 ![Repo Size](https://img.shields.io/github/repo-size/ParthAhuja143/pathfinding)
