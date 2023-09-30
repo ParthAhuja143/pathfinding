@@ -1112,17 +1112,6 @@ export class GridBoard {
     }
   }
 
-  isValid(row, col) {
-    return (
-      row >= 0 &&
-      row < this.rows &&
-      col >= 0 &&
-      col < this.cols &&
-      this.board[row][col].isStart === false &&
-      this.board[row][col].isFinish === false
-    );
-  }
-
   createEnemyLines(method) {
     this.removeEnemies();
     this.removeVisited();

@@ -67,7 +67,7 @@ const ModalComp = () => {
                             features of this application.
                         </Typography>
                         <Typography sx={{mt: 2,display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                            <img src="/logo512.png" width={"100px"} />
+                            <img src="/logo512.png" width={"100px"} alt="Path Finder" />
                         </Typography>
                     </>
                 )}
@@ -783,7 +783,7 @@ const ModalComp = () => {
                             This is an open source repository, if you want to contribute then fork this repository <a href="https://github.com/ParthAhuja143/pathfinding">Here</a>.
                         </Typography>
                         <Typography sx={{mt: 2,display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                            <img src="/logo512.png" width={"100px"} />
+                            <img src="/logo512.png" width={"100px"} alt="Path Finder" />
                         </Typography>
                     </>
                 )}
