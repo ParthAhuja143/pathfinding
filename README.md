@@ -1,70 +1,36 @@
-# Getting Started with Create React App
+---
+title: Pathfinding Algorithm Visualizer
+description: Visualize and compare various pathfinding algorithms with an interactive grid-based UI.
+author: ParthAhuja143
+---
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![License](https://img.shields.io/github/license/ParthAhuja143/pathfinding)
+![Repo Size](https://img.shields.io/github/repo-size/ParthAhuja143/pathfinding)
+![Stars](https://img.shields.io/github/stars/ParthAhuja143/pathfinding?style=social)
+![Forks](https://img.shields.io/github/forks/ParthAhuja143/pathfinding?style=social)
 
-## Available Scripts
+## About
 
-In the project directory, you can run:
+Pathfinding algorithms are essential tools in various domains, from robotics to video games. This project aims to provide a visual representation of different pathfinding algorithms, allowing users to understand, compare, and analyze their behavior and performance. Whether you're a student learning about algorithms or a developer seeking to optimize your application's pathfinding capabilities, this visualizer can be a valuable educational and practical resource.
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Interactive Grid-Based Interface:** Define starting and ending points and add obstacles with an intuitive grid-based user interface.
+- **Real-Time Visualization:** Witness the pathfinding process in real time as the algorithm navigates through the grid.
+- **Multiple Pathfinding Algorithms:** Explore various pathfinding algorithms, including Dijkstra's Algorithm, A*, Breadth-First Search (BFS), Depth-First Search (DFS), Bidirectional BFS, Greedy Best-First Search, A*, and also a brand new Riot Algorithm.
+- **Convenience Features:** Easily clear paths and obstacles with dedicated buttons.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Getting Started
 
-### `npm test`
+### Prerequisites
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To run this project locally, you need to have Node.js installed on your machine. If you haven't already, you can download it from [the official website](https://nodejs.org/).
 
-### `npm run build`
+### Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Follow these steps to set up the project:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Clone this repository to your local machine:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+   ```bash
+   git clone https://github.com/ParthAhuja143/pathfinding-algorithm-visualizer.git

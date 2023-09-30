@@ -1,4 +1,4 @@
-import { Box, Button, Modal, Paper, Typography } from "@mui/material";
+import { Box, Button, FormControl, InputLabel, Modal, OutlinedInput, Paper, Select, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import Node from "../PathFindingVisualizer/Node";
 
@@ -19,7 +19,7 @@ const ModalComp = () => {
     };
 
     useEffect(() => {
-        if (page > 7) {
+        if (page > 9) {
             handleClose();
         }
     }, [page]);
@@ -45,6 +45,9 @@ const ModalComp = () => {
                     p: 4,
                 }}
             >
+                <Typography variant="p" component={"p"}>
+                    {page+ " / 9"}
+                </Typography>
                 {page === 1 && (
                     <>
                         <Typography
@@ -128,9 +131,111 @@ const ModalComp = () => {
                             ones do. Additionally, not all algorithms guarantee
                             the shortest path.
                         </Typography>
+                        <Typography sx={{mt: 2}}>
+                        <FormControl sx={{ m: 1 }}>
+                                <InputLabel id="demo-multiple-checkbox-label">
+                                    Algorithm
+                                </InputLabel>
+                                <Select
+                                    labelId="demo-multiple-checkbox-label"
+                                    id="demo-multiple-checkbox"
+                                    value={"Dijkstra"}
+                                    input={<OutlinedInput label="Algorithm" />}
+                                    renderValue={(value) =>
+                                        value + ` Algorithm`
+                                    }
+                                    sx={{
+                                        color: "white",
+                                        background: "#222222",
+                                    }}
+                                >
+                                </Select>
+                            </FormControl>
+                        </Typography>
                     </>
                 )}
                 {page === 4 && (
+                    <>
+                        <Typography
+                            id="modal-modal-title"
+                            variant="h4"
+                            component="h4"
+                        >
+                            Picking a Maze Generation Algorithm
+                        </Typography>
+                        <Typography
+                            id="modal-modal-description"
+                            variant="h6"
+                            component={"h6"}
+                            sx={{ mt: 2 }}
+                        >
+                            If you don't want to add walls or weights manually then you can generate a maze by choosing an algorithm from the "Maze Generation" drop-down
+                            menu.
+                        </Typography>
+                        <Typography sx={{mt: 2}}>
+                        <FormControl sx={{ m: 1 }}>
+                                <InputLabel id="demo-multiple-checkbox-label">
+                                    Algorithm
+                                </InputLabel>
+                                <Select
+                                    labelId="demo-multiple-checkbox-label"
+                                    id="demo-multiple-checkbox"
+                                    value={"Walls Recursive Division - Horizontal Skew"}
+                                    input={<OutlinedInput label="Algorithm" />}
+                                    renderValue={(value) =>
+                                        value
+                                    }
+                                    sx={{
+                                        color: "white",
+                                        background: "#222222",
+                                    }}
+                                >
+                                </Select>
+                            </FormControl>
+                        </Typography>
+                    </>
+                )}
+                {page === 5 && (
+                    <>
+                        <Typography
+                            id="modal-modal-title"
+                            variant="h4"
+                            component="h4"
+                        >
+                            Picking an Enemy Placement Algorithm
+                        </Typography>
+                        <Typography
+                            id="modal-modal-description"
+                            variant="h6"
+                            component={"h6"}
+                            sx={{ mt: 2 }}
+                        >
+                            Enemies can be placed manually by Selecting Riot Algorithm and clicking on the grid while holding 'E', but if you don't want to add enemies manually, you can generate enemies by choosing from 'Enemy Generation'.
+                        </Typography>
+                        <Typography sx={{mt: 2}}>
+                        <FormControl sx={{ m: 1 }}>
+                                <InputLabel id="demo-multiple-checkbox-label">
+                                    Enemy Generation
+                                </InputLabel>
+                                <Select
+                                    labelId="demo-multiple-checkbox-label"
+                                    id="demo-multiple-checkbox"
+                                    value={"Sniper Alley"}
+                                    input={<OutlinedInput label="Enemy Generation" />}
+                                    renderValue={(value) =>
+                                        value
+                                    }
+                                    sx={{
+                                        color: "white",
+                                        background: "#222222",
+                                    }}
+                                >
+                                </Select>
+                            </FormControl>
+                        </Typography>
+                    </>
+                )}
+                {page === 6 && (
                     <>
                         <Typography
                             id="modal-modal-title"
@@ -171,7 +276,7 @@ const ModalComp = () => {
                         </Typography>
                     </>
                 )}
-                {page === 5 && (
+                {page === 7 && (
                     <>
                         <Typography
                             id="modal-modal-title"
@@ -410,7 +515,7 @@ const ModalComp = () => {
                         </Typography>
                     </>
                 )}
-                {page === 6 && (
+                {page === 8 && (
                     <>
                         <Typography
                             id="modal-modal-title"
@@ -656,7 +761,7 @@ const ModalComp = () => {
                         </Typography>
                     </>
                 )}
-                {page === 7 && (
+                {page === 9 && (
                     <>
                         <Typography
                             id="modal-modal-title"
@@ -673,6 +778,9 @@ const ModalComp = () => {
                         >
                             I hope you'll have as much fun with this application
                             as I had building it.
+                        </Typography>
+                        <Typography variant="p" component={"p"} sx={{mt: 2}}>
+                            This is an open source repository, if you want to contribute then fork this repository <a href="https://github.com/ParthAhuja143/pathfinding">Here</a>.
                         </Typography>
                         <Typography sx={{mt: 2,display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
                             <img src="/logo512.png" width={"100px"} />
@@ -691,7 +799,7 @@ const ModalComp = () => {
                             Previous
                         </Button>
                     )}
-                    {page < 8 && (
+                    {page < 10 && (
                         <Button sx={{ m: 1 }} onClick={handleNextPage}>
                             Next
                         </Button>

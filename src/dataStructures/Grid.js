@@ -718,6 +718,7 @@ export class GridBoard {
     }
 
     this.animateNodeTimeoutReference(node, animationCounter);
+    animationCounter.value = animationCounter.value + 1;
 
     const dx = [-1, 0, 1, 0];
     const dy = [0, 1, 0, -1];

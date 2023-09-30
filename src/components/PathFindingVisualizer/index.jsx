@@ -19,7 +19,7 @@ import {
 } from "@mui/material";
 import RouteSharpIcon from "@mui/icons-material/RouteSharp";
 import ModalComp from "../Modal";
-import DeleteIcon from '@mui/icons-material/Delete';
+import DeleteIcon from "@mui/icons-material/Delete";
 
 const AlgorithmMap = [
     {
@@ -57,33 +57,33 @@ const AlgorithmMap = [
 
 const TagMap = {
     "Best Path": {
-        color: "#42b883"
+        color: "#42b883",
     },
     "A Star": {
-        color: "#6643b5"
+        color: "#6643b5",
     },
-    "Dijkstra": {
-        color: '#eb2632'
+    Dijkstra: {
+        color: "#eb2632",
     },
-    "Unweighted": {
-        color: '#ff8b00'
+    Unweighted: {
+        color: "#ff8b00",
     },
-    "Weighted": {
-        color: '#303841'
+    Weighted: {
+        color: "#303841",
     },
     "Heuristic-Heavy": {
-        color: '#ff004d'
+        color: "#ff004d",
     },
     "Horizontal Bias": {
-        color: '#0881a3'
+        color: "#0881a3",
     },
     "Vertical Bias": {
-        color: '#442a23'
+        color: "#442a23",
     },
-    "Walls": {
-        color: '#00204a'
+    Walls: {
+        color: "#00204a",
     },
-}
+};
 
 const MazeAlgorithm = [
     {
@@ -124,13 +124,14 @@ const heuristicMap = [
 ];
 
 const functionalityMap = {
-    "Dijkstra": {
+    Dijkstra: {
         canSelectHeuristic: false,
         canCreateEnemies: false,
         canCreateWalls: true,
         canCreateWeightedNodes: true,
         tags: ["Best Path", "Weighted"],
-        description: "Dijkstra's Algorithm is weighted and guarantees the shortest path!",
+        description:
+            "Dijkstra's Algorithm is weighted and guarantees the shortest path!",
     },
     "Breadth First Search": {
         canSelectHeuristic: false,
@@ -138,7 +139,8 @@ const functionalityMap = {
         canCreateWalls: true,
         tags: ["Best Path", "Unweighted"],
         canCreateWeightedNodes: true,
-        description: "Breath First Search is unweighted and guarantees the shortest path!",
+        description:
+            "Breath First Search is unweighted and guarantees the shortest path!",
     },
     "Depth First Search": {
         canSelectHeuristic: false,
@@ -146,7 +148,8 @@ const functionalityMap = {
         canCreateWalls: true,
         tags: ["Unweighted"],
         canCreateWeightedNodes: true,
-        description: "Depth First Search is unweighted and does not guarantee the shortest path!",
+        description:
+            "Depth First Search is unweighted and does not guarantee the shortest path!",
     },
     "Bi-Directional BFS": {
         canSelectHeuristic: false,
@@ -154,7 +157,8 @@ const functionalityMap = {
         canCreateWalls: true,
         canCreateWeightedNodes: true,
         tags: ["Best Path", "Unweighted"],
-        description: "Bi-Directional Breath First Search is unweighted and guarantees the shortest path!",
+        description:
+            "Bi-Directional Breath First Search is unweighted and guarantees the shortest path!",
     },
     "Greedy BFS": {
         canSelectHeuristic: false,
@@ -162,23 +166,26 @@ const functionalityMap = {
         canCreateWalls: true,
         canCreateWeightedNodes: true,
         tags: ["Unweighted"],
-        description: "Greedy Best First Search is weighted and does not guarantee the shortest path!",
+        description:
+            "Greedy Best First Search is weighted and does not guarantee the shortest path!",
     },
-    "AStar": {
+    AStar: {
         canSelectHeuristic: true,
         canCreateEnemies: false,
         canCreateWalls: true,
         canCreateWeightedNodes: true,
         tags: ["Best Path", "Weighted", "Heuristic-Heavy"],
-        description: "A Star Search is weighted and guarantees the shortest path! It works by taking into account distance from start node to current node and also predicted distance from current node to target node (also known as heuristc calculation).",
+        description:
+            "A Star Search is weighted and guarantees the shortest path! It works by taking into account distance from start node to current node and also predicted distance from current node to target node (also known as heuristc calculation).",
     },
-    "Riot": {
+    Riot: {
         canSelectHeuristic: true,
         canCreateEnemies: true,
         canCreateWalls: true,
         canCreateWeightedNodes: true,
         tags: ["Best Path", "A Star", "Dijkstra"],
-        description: "Riot Algorithm was developed by myself (atleast from my knowledge, as I didn't find anything like this online), this algorithm is a combination of A Star and Dijkstra, the algorithm also takes into account threat levels of node and enemy nodes. Enemies can cause threats within a 2 unit radius, Multiple enemies can super impose threat levels, the start node tries to find the best path from start to finish while trying to avoid nodes that can cause threats. As you can imagine, the algorithm got it's name from gaming strategies where the character has to avoid danger zones and reach the target.",
+        description:
+            "Riot Algorithm is weighted and gives shortest path (combination of AStar and Dijkstra), the algorithm also takes into account threat levels of node and enemy nodes along with weights and walls. As you can imagine, the algorithm got it's name from gaming strategies where the character has to avoid danger zones and reach the target.",
     },
 };
 
@@ -186,9 +193,7 @@ const PathFindingVisualizer = () => {
     const [grid, setGrid] = useState(null);
     const [isWeightKeyDown, setIsWeightKeyDown] = useState(false);
     const [isEnemyKeyDown, setIsEnemyKeyDown] = useState(false);
-    const [selectedAlgorithm, setSelectedAlgorithm] = useState(
-        "Riot"
-    );
+    const [selectedAlgorithm, setSelectedAlgorithm] = useState("Riot");
     const [selectedEnemyAlgorithm, setSelectedEnemyAlgorithm] =
         useState("Ambush");
     const [selectedHeuristics, setSelectedHeuristics] = useState("Manhattan");
@@ -373,223 +378,7 @@ const PathFindingVisualizer = () => {
 
     return (
         <>
-        <ModalComp />
-            <Paper
-                sx={{
-                    padding: 1,
-                    display: "flex",
-                    background: "#121212",
-                    justifyContent: "flex-start",
-                    alignItems: "flex-start",
-                    flexDirection: "column",
-                    borderRadius: 0
-                }}
-            >
-                <div className="flex">
-                    <span
-                        className="flex"
-                        style={{
-                            border: "1px solid #121212",
-                            borderRadius: "20px",
-                            padding: "2px",
-                            background: "white",
-                        }}
-                    >
-                        <Node additionalClassName="start-node circle" />
-                        <Typography
-                            variant="subtitle2"
-                            color={"black"}
-                            margin={"0 10px"}
-                        >
-                            Start Node
-                        </Typography>
-                    </span>
-                    <span
-                        className="flex"
-                        style={{
-                            border: "1px solid #121212",
-                            borderRadius: "20px",
-                            padding: "2px",
-                            background: "white",
-                        }}
-                    >
-                        <Node additionalClassName="finish-node circle" />
-                        <Typography
-                            variant="subtitle2"
-                            color={"black"}
-                            margin={"0 10px"}
-                        >
-                            Finish Node
-                        </Typography>
-                    </span>
-                    <span
-                        className="flex"
-                        style={{
-                            border: "1px solid #121212",
-                            borderRadius: "20px",
-                            padding: "2px",
-                            background: "white",
-                        }}
-                    >
-                        <Node additionalClassName="wall-node circle" />
-                        <Typography
-                            variant="subtitle2"
-                            color={"black"}
-                            margin={"0 10px"}
-                        >
-                            Wall Node
-                        </Typography>
-                    </span>
-                    <span
-                        className="flex"
-                        style={{
-                            border: "1px solid #121212",
-                            borderRadius: "20px",
-                            padding: "2px",
-                            background: "white",
-                        }}
-                    >
-                        <Node additionalClassName="weight-node circle" />
-                        <Typography
-                            variant="subtitle2"
-                            color={"black"}
-                            margin={"0 10px"}
-                        >
-                            Weight Node
-                        </Typography>
-                    </span>
-                    <span
-                        className="flex"
-                        style={{
-                            border: "1px solid #121212",
-                            borderRadius: "20px",
-                            padding: "2px",
-                            background: "white",
-                        }}
-                    >
-                        <Node additionalClassName="enemy-node circle" />
-                        <Typography
-                            variant="subtitle2"
-                            color={"black"}
-                            margin={"0 10px"}
-                        >
-                            Enemy Node
-                        </Typography>
-                    </span>
-                </div>
-                <div className="flex">
-                    <span
-                        className="flex"
-                        style={{
-                            border: "1px solid #121212",
-                            borderRadius: "20px",
-                            padding: "2px",
-                            background: "white",
-                        }}
-                    >
-                        <Node additionalClassName={"visited-node circle"} />
-                        <Typography
-                            variant="subtitle2"
-                            color={"black"}
-                            margin={"0 10px"}
-                        >
-                            Visited Node
-                        </Typography>
-                    </span>
-                    <span
-                        className="flex"
-                        style={{
-                            border: "1px solid #121212",
-                            borderRadius: "20px",
-                            padding: "2px",
-                            background: "white",
-                        }}
-                    >
-                        <Node additionalClassName={"unvisited-node circle"} />
-                        <Typography
-                            variant="subtitle2"
-                            color={"black"}
-                            margin={"0 10px"}
-                        >
-                            Unvisited Node
-                        </Typography>
-                    </span>
-                    <span
-                        className="flex"
-                        style={{
-                            border: "1px solid #121212",
-                            borderRadius: "20px",
-                            padding: "2px",
-                            background: "white",
-                        }}
-                    >
-                        <Node additionalClassName="node-shortest-path circle" />
-                        <Typography
-                            variant="subtitle2"
-                            color={"black"}
-                            margin={"0 10px"}
-                        >
-                            Path Node
-                        </Typography>
-                    </span>
-                </div>
-                <div className="flex">
-                    <span
-                        className="flex"
-                        style={{
-                            border: "1px solid #121212",
-                            borderRadius: "20px",
-                            padding: "2px",
-                            background: "white",
-                        }}
-                    >
-                        <Node additionalClassName="threat-node-10 circle" />
-                        <Typography
-                            variant="subtitle2"
-                            color={"black"}
-                            margin={"0 10px"}
-                        >
-                            Maximum Threat Node
-                        </Typography>
-                    </span>
-                    <span
-                        className="flex"
-                        style={{
-                            border: "1px solid #121212",
-                            borderRadius: "20px",
-                            padding: "2px",
-                            background: "white",
-                        }}
-                    >
-                        <Node additionalClassName="threat-node-5 circle" />
-                        <Typography
-                            variant="subtitle2"
-                            color={"black"}
-                            margin={"0 10px"}
-                        >
-                            Moderate Threat Node
-                        </Typography>
-                    </span>
-                    <span
-                        className="flex"
-                        style={{
-                            border: "1px solid #121212",
-                            borderRadius: "20px",
-                            padding: "2px",
-                            background: "white",
-                        }}
-                    >
-                        <Node additionalClassName="threat-node-2 circle" />
-                        <Typography
-                            variant="subtitle2"
-                            color={"black"}
-                            margin={"0 10px"}
-                        >
-                            Low Threat Node
-                        </Typography>
-                    </span>
-                </div>
-            </Paper>
+            <ModalComp />
             <AppBar
                 position="static"
                 sx={{
@@ -600,7 +389,10 @@ const PathFindingVisualizer = () => {
                     color: "white",
                 }}
             >
-                <Container maxWidth="xl" sx={{display: 'flex', flexDirection: 'column'}}>
+                <Container
+                    maxWidth="xl"
+                    sx={{ display: "flex", flexDirection: "column" }}
+                >
                     <Toolbar disableGutters>
                         <FormGroup
                             sx={{
@@ -645,7 +437,14 @@ const PathFindingVisualizer = () => {
                                                                 size="small"
                                                                 key={index}
                                                                 label={tag}
-                                                                sx={{ m: 1, color: 'white', background: TagMap[tag].color}}
+                                                                sx={{
+                                                                    m: 1,
+                                                                    color: "white",
+                                                                    background:
+                                                                        TagMap[
+                                                                            tag
+                                                                        ].color,
+                                                                }}
                                                             />
                                                         );
                                                     }
@@ -799,16 +598,32 @@ const PathFindingVisualizer = () => {
                                                 if (!canClickButton) return;
                                                 handleMazeAlgorithmChange({
                                                     target: {
-                                                        value: event.target.firstChild.data
+                                                        value: event.target
+                                                            .firstChild.data,
                                                     },
                                                 });
                                             }}
                                         >
                                             <Typography variant="p">
                                                 {mazeAlgo.label}
-                                                {mazeAlgo.tags.map((tag, index) => {
-                                                    return <Chip key={index} label={tag} sx={{m: 1, color: 'white', background: TagMap[tag].color}} />
-                                                })}
+                                                {mazeAlgo.tags.map(
+                                                    (tag, index) => {
+                                                        return (
+                                                            <Chip
+                                                                key={index}
+                                                                label={tag}
+                                                                sx={{
+                                                                    m: 1,
+                                                                    color: "white",
+                                                                    background:
+                                                                        TagMap[
+                                                                            tag
+                                                                        ].color,
+                                                                }}
+                                                            />
+                                                        );
+                                                    }
+                                                )}
                                             </Typography>
                                         </MenuItem>
                                     ))}
@@ -817,20 +632,226 @@ const PathFindingVisualizer = () => {
                         </FormGroup>
                     </Toolbar>
                 </Container>
-            </AppBar>
-            <Container sx={{m: 2, width: '100%'}}>
-            <Typography variant="h3" textAlign={'left'} sx={{display: 'flex'}}>
-                {selectedAlgorithm + ' Algorithm'}
-            </Typography>
-            <span style={{display: 'flex'}}>
-            {functionalityMap[selectedAlgorithm].tags.map((tag, index) => {
-                    return <Chip key={index} label={tag} sx={{m: 1, background: TagMap[tag].color, color: 'white'}} />
-             })}
-            </span>
-            <Typography variant="p" textAlign={'left'} lineHeight={1.6} sx={{display: 'flex'}}>
+                <Paper
+                    sx={{
+                        padding: 1,
+                        display: "flex",
+                        background: "#121212",
+                        justifyContent: "flex-start",
+                        alignItems: "flex-start",
+                        flexDirection: "row",
+                        flexWrap: "wrap",
+                        borderRadius: 0,
+                    }}
+                >
+                    <span
+                        className="flex"
+                        style={{
+                            border: "1px solid #121212",
+                            borderRadius: "20px",
+                            padding: "2px",
+                            background: "white",
+                        }}
+                    >
+                        <Node additionalClassName="start-node circle" />
+                        <Typography
+                            variant="subtitle2"
+                            color={"black"}
+                            margin={"0 10px"}
+                        >
+                            Start Node
+                        </Typography>
+                    </span>
+                    <span
+                        className="flex"
+                        style={{
+                            border: "1px solid #121212",
+                            borderRadius: "20px",
+                            padding: "2px",
+                            background: "white",
+                        }}
+                    >
+                        <Node additionalClassName="finish-node circle" />
+                        <Typography
+                            variant="subtitle2"
+                            color={"black"}
+                            margin={"0 10px"}
+                        >
+                            Finish Node
+                        </Typography>
+                    </span>
+                    <span
+                        className="flex"
+                        style={{
+                            border: "1px solid #121212",
+                            borderRadius: "20px",
+                            padding: "2px",
+                            background: "white",
+                        }}
+                    >
+                        <Node additionalClassName="wall-node circle" />
+                        <Typography
+                            variant="subtitle2"
+                            color={"black"}
+                            margin={"0 10px"}
+                        >
+                            Wall Node
+                        </Typography>
+                    </span>
+                    <span
+                        className="flex"
+                        style={{
+                            border: "1px solid #121212",
+                            borderRadius: "20px",
+                            padding: "2px",
+                            background: "white",
+                        }}
+                    >
+                        <Node additionalClassName="weight-node circle" />
+                        <Typography
+                            variant="subtitle2"
+                            color={"black"}
+                            margin={"0 10px"}
+                        >
+                            Weight Node
+                        </Typography>
+                    </span>
+                    <span
+                        className="flex"
+                        style={{
+                            border: "1px solid #121212",
+                            borderRadius: "20px",
+                            padding: "2px",
+                            background: "white",
+                        }}
+                    >
+                        <Node additionalClassName="enemy-node circle" />
+                        <Typography
+                            variant="subtitle2"
+                            color={"black"}
+                            margin={"0 10px"}
+                        >
+                            Enemy Node
+                        </Typography>
+                    </span>
+                    <span
+                        className="flex"
+                        style={{
+                            border: "1px solid #121212",
+                            borderRadius: "20px",
+                            padding: "2px",
+                            background: "white",
+                        }}
+                    >
+                        <Node additionalClassName={"visited-node circle"} />
+                        <Typography
+                            variant="subtitle2"
+                            color={"black"}
+                            margin={"0 10px"}
+                        >
+                            Visited Node
+                        </Typography>
+                    </span>
+                    <span
+                        className="flex"
+                        style={{
+                            border: "1px solid #121212",
+                            borderRadius: "20px",
+                            padding: "2px",
+                            background: "white",
+                        }}
+                    >
+                        <Node additionalClassName={"unvisited-node circle"} />
+                        <Typography
+                            variant="subtitle2"
+                            color={"black"}
+                            margin={"0 10px"}
+                        >
+                            Unvisited Node
+                        </Typography>
+                    </span>
+                    <span
+                        className="flex"
+                        style={{
+                            border: "1px solid #121212",
+                            borderRadius: "20px",
+                            padding: "2px",
+                            background: "white",
+                        }}
+                    >
+                        <Node additionalClassName="node-shortest-path circle" />
+                        <Typography
+                            variant="subtitle2"
+                            color={"black"}
+                            margin={"0 10px"}
+                        >
+                            Path Node
+                        </Typography>
+                    </span>
+                    <span
+                        className="flex"
+                        style={{
+                            border: "1px solid #121212",
+                            borderRadius: "20px",
+                            padding: "2px",
+                            background: "white",
+                        }}
+                    >
+                        <Node additionalClassName="threat-node-10 circle" />
+                        <Typography
+                            variant="subtitle2"
+                            color={"black"}
+                            margin={"0 10px"}
+                        >
+                            Maximum Threat Node
+                        </Typography>
+                    </span>
+                    <span
+                        className="flex"
+                        style={{
+                            border: "1px solid #121212",
+                            borderRadius: "20px",
+                            padding: "2px",
+                            background: "white",
+                        }}
+                    >
+                        <Node additionalClassName="threat-node-5 circle" />
+                        <Typography
+                            variant="subtitle2"
+                            color={"black"}
+                            margin={"0 10px"}
+                        >
+                            Moderate Threat Node
+                        </Typography>
+                    </span>
+                    <span
+                        className="flex"
+                        style={{
+                            border: "1px solid #121212",
+                            borderRadius: "20px",
+                            padding: "2px",
+                            background: "white",
+                        }}
+                    >
+                        <Node additionalClassName="threat-node-2 circle" />
+                        <Typography
+                            variant="subtitle2"
+                            color={"black"}
+                            margin={"0 10px"}
+                        >
+                            Low Threat Node
+                        </Typography>
+                    </span>
+                </Paper>
+                <Typography
+                    variant="p"
+                    textAlign={"left"}
+                    lineHeight={1.6}
+                    sx={{ display: "flex" }}
+                >
                     {functionalityMap[selectedAlgorithm].description}
-            </Typography>
-            </Container>
+                </Typography>
+            </AppBar>
             <Paper sx={{ m: 1, p: 1 }}>
                 <table className="grid">
                     <tbody>
